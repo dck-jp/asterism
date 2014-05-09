@@ -11,6 +11,7 @@ using ZedGraph;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.Diagnostics;
+using Asterism;
 
 namespace Asterism
 {
@@ -20,8 +21,6 @@ namespace Asterism
     /// </summary>
     public partial class FormMain : Form
     {
-        public const string verInfo = @"asterism v1.7.3 β";
-
         #region ロード中のファイルに関する情報
         internal ZMappingData CurrentZMapData
         {
@@ -55,31 +54,22 @@ namespace Asterism
         {
             InitializeComponent();
 
-            Config.Load();
+            Core.Config = Config.Load();
             string startPath;
 
             #region configデータセット
-            if (Config.InitialDirectory != "" && Directory.Exists(Config.InitialDirectory))
+            if (Core.Config.InitialDirectory != "" && Directory.Exists(Core.Config.InitialDirectory))
             {
-                startPath = Config.InitialDirectory;
+                startPath = Core.Config.InitialDirectory;
             }
             else
             {
                 startPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             }
 
-            Config.ShowStrings = true;
-            if (!Config.ShowStrings)
-            {
-                toolStripButtonConfig.Text = "";
-                toolStripButtonReload.Text = "";
-                toolStripButtonRotate.Text = "";
-                toolStripButtonRotateCW.Text = "";
-                toolStripButtonSaveAs.Text = "";
-                toolStripButtonVerInfo.Text = "";
-                toolStripButtonRotateCCW.Text = "";
-                toolStrip.Height = 25;
-            }
+
+            ToggleToolStripButtonText();
+
             #endregion
 
             // 各種ウィンドウの生成
@@ -97,7 +87,7 @@ namespace Asterism
             raw.Show(dockPanel);
 
             view.Activate(); 
-            this.Text = verInfo;
+            this.Text = Core.VerInfo;
 
 
             //
@@ -119,6 +109,29 @@ namespace Asterism
 
             
             
+        }
+
+        private void ToggleToolStripButtonText()
+        {
+            var buttons = new List<ToolStripButton>(){
+                toolStripButtonConfig,
+                toolStripButtonReload,
+                toolStripButtonRotate,
+                toolStripButtonSaveAsPNG,
+                toolStripButtonRotateCW,
+                toolStripButtonSaveAs,
+                toolStripButtonVerInfo,
+                toolStripButtonRotateCCW
+            };
+
+            if (!Core.Config.ShowStrings)
+            {
+                buttons.ForEach(b => b.DisplayStyle = ToolStripItemDisplayStyle.Image);
+            }
+            else
+            {
+                buttons.ForEach(b => b.DisplayStyle = ToolStripItemDisplayStyle.ImageAndText);
+            }
         }
 
 
@@ -262,6 +275,7 @@ namespace Asterism
         {
             FormUserConfig config = new FormUserConfig();
             config.ShowDialog();
+            ToggleToolStripButtonText();
         }
 
         private void toolStripButtonVerInfo_Click(object sender, EventArgs e)
@@ -285,14 +299,14 @@ namespace Asterism
             ezfiler.SetConfig();
             view.SetConfig();
 
-            Config.Save();
+            Core.Config.Save();
         }
 
         #endregion
 
         internal void SetTitle(string path)
         {
-            this.Text = Path.GetFileName(path) + " - "+ verInfo;
+            this.Text = Path.GetFileName(path) + " - "+ Core.VerInfo;
             
         }
 

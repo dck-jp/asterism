@@ -234,7 +234,7 @@ namespace Asterism
 
         internal void LoadConfig()
         {
-            maskList = new FilePatternList(Config.FileMaskNumber);
+            maskList = new FilePatternList(Core.Config.FileMaskNumber);
             maskList.LoadListFile();
             comboBoxFilePattern.Items.AddRange(maskList.ToArray());
         }
@@ -242,7 +242,7 @@ namespace Asterism
 
         internal void SetConfig()
         {
-            if (Config.ExitWithSavingDirectoryInfo) Config.InitialDirectory = currentFolder;
+            if (Core.Config.ExitWithSavingDirectoryInfo) Core.Config.InitialDirectory = currentFolder;
         }
 
         internal void SaveMaskList()

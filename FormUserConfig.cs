@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Asterism;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,15 +20,18 @@ namespace Asterism
 
         private void InitializeSetting()
         {
-            if (Config.ExitWithSavingDirectoryInfo) radioButtonAutoSave.Checked = true;
+            if (Core.Config.ExitWithSavingDirectoryInfo) radioButtonAutoSave.Checked = true;
             else radioButtonUserDefine.Checked = true;
 
             folderBrowserDialog.SelectedPath = textBoxInitialDirectory.Text
-                = Config.InitialDirectory;
+                = Core.Config.InitialDirectory;
 
-            numericUpDownFileMaskNumber.Value = Config.FileMaskNumber;
+            numericUpDownFileMaskNumber.Value = Core.Config.FileMaskNumber;
+            checkBoxShowStrings.Checked = Core.Config.ShowStrings;
+            numericUpDownAlarmFileSize.Value = Core.Config.AlarmFileSize;
 
-            numericUpDownAlarmFileSize.Value = Config.AlarmFileSize;
+            checkBoxEnablesOutOfRangeColor.Checked = Core.Config.EnablesOutOfRangeColor;
+            pictureBoxOutOfRangeColor.BackColor = Core.Config.OutOfRangeColor;
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -37,14 +41,18 @@ namespace Asterism
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            Config.ExitWithSavingDirectoryInfo = radioButtonAutoSave.Checked;
+            Core.Config.ExitWithSavingDirectoryInfo = radioButtonAutoSave.Checked;
 
             if(!radioButtonAutoSave.Checked)
-                Config.InitialDirectory = textBoxInitialDirectory.Text;
+                Core.Config.InitialDirectory = textBoxInitialDirectory.Text;
 
-            Config.FileMaskNumber = (int)numericUpDownFileMaskNumber.Value;
+            Core.Config.ShowStrings = checkBoxShowStrings.Checked;
+            Core.Config.FileMaskNumber = (int)numericUpDownFileMaskNumber.Value;
 
-            Config.AlarmFileSize = (int)numericUpDownAlarmFileSize.Value;
+            Core.Config.AlarmFileSize = (int)numericUpDownAlarmFileSize.Value;
+
+            Core.Config.EnablesOutOfRangeColor = checkBoxEnablesOutOfRangeColor.Checked;
+            Core.Config.OutOfRangeColor = pictureBoxOutOfRangeColor.BackColor;
 
             this.Close();
         }
@@ -61,6 +69,18 @@ namespace Asterism
                 textBoxInitialDirectory.Text = folderBrowserDialog.SelectedPath;
             }
 
+        }
+
+        private void pictureBoxOutOfRangeColor_Click(object sender, EventArgs e)
+        {
+            var dialog = new ColorDialog();
+            dialog.Color = pictureBoxOutOfRangeColor.BackColor;
+            dialog.FullOpen = true;
+            dialog.AnyColor = true;
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                pictureBoxOutOfRangeColor.BackColor = dialog.Color;
+            }
         }
     }
 }

@@ -5,72 +5,59 @@ using System.Text;
 using System.IO;
 using System.Windows.Forms;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Drawing;
+using Asterism;
+using System.Xml.Serialization;
 
 namespace Asterism
 {
-    internal static class Config
+    public class Config
     {
-        const string configFile = @"\zmap.cfg";
-
-        internal static bool ExitWithSavingDirectoryInfo {get;set;}
-        internal static string InitialDirectory { get; set; }
-        internal static int FileMaskNumber { get; set; }
-        internal static int AlarmFileSize { get; set; }
-
-        internal static string MaximumValue { get; set; }
-        internal static string MinimumValue { get; set; }
-
-        internal static bool ShowStrings { get; set; }
-
-        /// <summary>
-        /// configファイルを保存
-        /// </summary>
-        internal static void Save()
-        {
-            StringBuilder contents = new StringBuilder();
-            contents.AppendLine(ExitWithSavingDirectoryInfo.ToString());
-            contents.AppendLine(InitialDirectory);
-            contents.AppendLine(FileMaskNumber.ToString());
-            contents.AppendLine(MaximumValue);
-            contents.AppendLine(MinimumValue);
-            contents.AppendLine(AlarmFileSize.ToString());
-
-            File.WriteAllText(Application.StartupPath + configFile, contents.ToString());
+        public Config() {    
         }
 
-        /// <summary>
-        /// configファイルを読み込み
-        /// </summary>
-        internal static void Load()
-        {
-            try
-            {
-                string[] contents = File.ReadAllLines(Application.StartupPath + configFile);
-                ExitWithSavingDirectoryInfo = bool.Parse(contents[0]);
-                InitialDirectory = contents[1];
-                FileMaskNumber = int.Parse(contents[2]);
-                MaximumValue = contents[3];
-                MinimumValue = contents[4];
-                AlarmFileSize = int.Parse(contents[5]);
-            }
-            catch
-            {
-                LoadDefault();
+        public bool ExitWithSavingDirectoryInfo = true;
+        public string InitialDirectory = "";
+        public int FileMaskNumber = 5;
+        public int AlarmFileSize = 20;
+
+        public string MaximumValue = "";
+        public string MinimumValue = "";
+        public bool ShowStrings = true;
+
+        public bool EnablesOutOfRangeColor = false;
+        [XmlIgnore()]
+        public Color _OutOfRangeColor = Color.White;
+        [XmlIgnore()]
+        public Color OutOfRangeColor {
+            get { return Color.FromArgb(r, g, b); }
+            set { 
+                _OutOfRangeColor = value;
+                r = value.R;
+                g = value.G;
+                b = value.B;
             }
         }
-
-        /// <summary>
-        /// Default値をロード
-        /// </summary>
-        private static void LoadDefault()
+        public byte r  = 0;
+        public byte b  = 0;
+        public byte g  = 0;
+        
+        
+        public void Save()
         {
-            ExitWithSavingDirectoryInfo = true;
-            InitialDirectory = "";
-            FileMaskNumber = 5;
-            MaximumValue = "";
-            MinimumValue = "";
-            AlarmFileSize = 20;
+            Files.SaveXML<Config>(Core.ConfigFilePath, this);
         }
 
+        public static Config Load()
+        {
+            if (File.Exists(Core.ConfigFilePath))
+            {
+                return Files.LoadXML<Config>(Core.ConfigFilePath, true);
+            }
+            else
+            {
+                return new Config();
+            }
+        }
     }
 }

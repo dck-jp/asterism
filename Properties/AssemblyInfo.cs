@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("asterism")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("ClockAhead")]
 [assembly: AssemblyProduct("asterism")]
 [assembly: AssemblyCopyright("Copyright © D1CEK 2009-2010")]
 [assembly: AssemblyTrademark("")]

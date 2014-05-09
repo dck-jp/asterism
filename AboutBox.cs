@@ -13,7 +13,7 @@ namespace Asterism
         public AboutBox()
         {
             InitializeComponent();
-            label1.Text = FormMain.verInfo;
+            label1.Text = Core.VerInfo;
             label2.Text = "Copyright 2009-2014(c) D*isuke YAMAKAWA";
             linkLabel1.Text = "http://www.clockahead.com";
             

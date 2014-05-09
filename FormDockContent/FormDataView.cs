@@ -229,12 +229,13 @@ namespace Asterism
                   Graphics g = Graphics.FromImage(image);
                 g.InterpolationMode = InterpolationMode.NearestNeighbor;
                 g.PixelOffsetMode = PixelOffsetMode.HighQuality;
-                g.DrawImage(zMap.ToBitmap
-                    (min,max,
-                    (ZMappingData.ColorMode)comboBoxColorMode.SelectedIndex,
-                    (ZMappingData.ConvertMode)comboBoxConvertMode.SelectedIndex),
-                    0, 0, w, h);
 
+                
+                zMap.EnablesOutOfRangeColor = Core.Config.EnablesOutOfRangeColor;
+                zMap.OutOfRangeColor = Core.Config.OutOfRangeColor;
+                var bitmap = zMap.ToBitmap(min, max, (ZMappingData.ColorMode)comboBoxColorMode.SelectedIndex, (ZMappingData.ConvertMode)comboBoxConvertMode.SelectedIndex);
+
+                g.DrawImage(bitmap,0, 0, w, h);
                 defaultBitmap = image;
                 pictureBoxZMap.Image = image;
                 //ChangeOperationMode(true);
@@ -256,9 +257,9 @@ namespace Asterism
         {
             try
             {
-                if (currentFile.Length > 1024 * 1024 * Config.AlarmFileSize)
+                if (currentFile.Length > 1024 * 1024 * Core.Config.AlarmFileSize)
                 {
-                    if (MessageBox.Show("ファイルサイズが" + Config.AlarmFileSize + "MBを超えています。\n"
+                    if (MessageBox.Show("ファイルサイズが" + Core.Config.AlarmFileSize + "MBを超えています。\n"
                         + "表示に時間がかかることが予想されます。\n\n読み込みを続行しますか？", "", MessageBoxButtons.OKCancel)
                         != DialogResult.OK)
                     {
@@ -492,16 +493,16 @@ namespace Asterism
 
         internal void LoadConfig()
         {
-            textBoxUserMax.Text = Config.MaximumValue;
-            textBoxUserMin.Text = Config.MinimumValue;
+            textBoxUserMax.Text = Core.Config.MaximumValue;
+            textBoxUserMin.Text = Core.Config.MinimumValue;
 
             
         }
 
         internal void SetConfig()
         {
-            Config.MaximumValue = textBoxUserMax.Text;
-            Config.MinimumValue = textBoxUserMin.Text;
+            Core.Config.MaximumValue = textBoxUserMax.Text;
+            Core.Config.MinimumValue = textBoxUserMin.Text;
         }
 
         private void comboBoxConvertMode_SelectedIndexChanged(object sender, EventArgs e)

@@ -39,7 +39,7 @@
   <ItemGroup>
     <Reference Include="CodeD.Data.ZMappingData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\CodeD.Data.ZMappingData.dll</HintPath>
+      <HintPath>DLL\CodeD.Data.ZMappingData.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -73,6 +73,7 @@
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Config.cs" />
+    <Compile Include="Core.cs" />
     <Compile Include="FilePatternList.cs" />
     <Compile Include="FormDockContent\FormConfig.cs">
       <SubType>Form</SubType>
@@ -172,7 +173,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DLL\CodeD.Data.ZMappingData.dll" />
     <Content Include="DLL\WeifenLuo.WinFormsUI.Docking.dll" />
     <Content Include="icone_asterism.ico" />
     <Content Include="readme.txt">

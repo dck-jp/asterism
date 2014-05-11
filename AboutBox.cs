@@ -1,6 +1,8 @@
-﻿using System;
+﻿using CodeD.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -13,9 +15,23 @@ namespace Asterism
         public AboutBox()
         {
             InitializeComponent();
-            label1.Text = Core.VerInfo;
+
+            foreach (Control control in this.Controls) { control.Font = new Font(new FontFamily("Meiryo uI"), 10.5f); }
+
+            label1.Text = "asterism";
+            label1.Font = new Font(new FontFamily("Meiryo uI"), 18f, FontStyle.Bold);
+            label11.Text = "visualize CSV/TSV files in Counter Plot & Line Chart";
+
             label2.Text = "Copyright 2009-2014(c) D*isuke YAMAKAWA";
             linkLabel1.Text = "http://www.clockahead.com";
+
+            label3.Text = "Version 情報：";
+            FileVersionInfo vi = FileVersionInfo.GetVersionInfo("ZedGraph.dll");
+            FileVersionInfo vi2 = FileVersionInfo.GetVersionInfo("WeifenLuo.WinFormsUI.Docking.dll");
+            textBox1.Text = string.Format(@"asterism : Ver.{0}.{1}.{2} β", Core.MajourVersion, Core.MinorVersion, Core.Revision) + Environment.NewLine
+                             + "CodeD.Data.ZMappingData.dll : Ver." + ZMappingData.VersionInfo + Environment.NewLine
+                             + string.Format("{0} : Ver.{1}", vi.InternalName,vi.FileVersion) + Environment.NewLine
+                             + string.Format("{0} : Ver.{1}", vi2.InternalName, vi2.FileVersion) + Environment.NewLine;
             
         }
 

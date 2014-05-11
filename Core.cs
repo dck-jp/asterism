@@ -9,7 +9,10 @@ namespace Asterism
     {
         public static Config Config;
         public static readonly string ConfigFilePath = Application.UserAppDataPath + "\\config.xml";
-        public static readonly string VerInfo = @"asterism v1.8.0 β";
+        public static readonly int MajourVersion = 1;
+        public static readonly int MinorVersion = 8;
+        public static readonly int Revision = 1;
+        public static string VerInfo { get { return string.Format(@"asterism v{0}.{1}.{2} β", MajourVersion, MinorVersion, Revision); } }
     }
 
     static class Files

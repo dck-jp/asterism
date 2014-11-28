@@ -287,6 +287,24 @@ namespace Asterism
             }
         }
 
+        /// <summary>
+        /// 一括変換
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripButtonMultiSave_Click(object sender, EventArgs e)
+        {
+            var dirName = "img";
+            Directory.CreateDirectory(dirName);
+
+            var list = Core.EzFiler.FileList;
+            foreach (ListViewItem i in list)
+            {
+                i.Selected = true;
+                if(pictureBoxZMap.Image != null) pictureBoxZMap.Image.Save(dirName + "/" + i.Text + ".png");
+            }
+        }
+
 
     }
 }

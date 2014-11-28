@@ -8,10 +8,11 @@ namespace Asterism
     public static class Core
     {
         public static Config Config;
+        public static FormEasyFiler EzFiler;
         public static readonly string ConfigFilePath = Application.UserAppDataPath + "\\config.xml";
         public static readonly int MajourVersion = 1;
-        public static readonly int MinorVersion = 8;
-        public static readonly int Revision = 1;
+        public static readonly int MinorVersion = 9;
+        public static readonly int Revision = 0;
         public static string VerInfo { get { return string.Format(@"asterism v{0}.{1}.{2} β", MajourVersion, MinorVersion, Revision); } }
     }
 

@@ -17,6 +17,8 @@ namespace Asterism
         string currentFolder; //現在表示中のフォルダパス
         FilePatternList maskList ;
 
+        public System.Windows.Forms.ListView.ListViewItemCollection FileList { get { return listViewFiles.Items; } }
+
         public FormEasyFiler(FormDataView view)
         {
             InitializeComponent();
@@ -248,6 +250,11 @@ namespace Asterism
         internal void SaveMaskList()
         {
             maskList.SaveListFile();
+        }
+
+        private void エクスプローラで開くToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(currentFolder);
         }
     }
 }

@@ -28,32 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEasyFiler));
             this.comboBoxFilePattern = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.listViewFiles = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.buttonApplyFileMask = new System.Windows.Forms.Button();
             this.textBoxSelectedFolder = new System.Windows.Forms.TextBox();
             this.buttonSelectFolder = new System.Windows.Forms.Button();
             this.listViewFolders = new System.Windows.Forms.ListView();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.panelFolderSelect = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panelFileMask = new System.Windows.Forms.Panel();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.contextMenuStripRightClick = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.エクスプローラで開くToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             this.panelFolderSelect.SuspendLayout();
             this.panelFileMask.SuspendLayout();
+            this.contextMenuStripRightClick.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBoxFilePattern
             // 
-            this.comboBoxFilePattern.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxFilePattern.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxFilePattern.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBoxFilePattern.FormattingEnabled = true;
             this.comboBoxFilePattern.Location = new System.Drawing.Point(80, 7);
@@ -76,6 +80,7 @@
             // 
             this.listViewFiles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1});
+            this.listViewFiles.ContextMenuStrip = this.contextMenuStripRightClick;
             this.listViewFiles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewFiles.FullRowSelect = true;
             this.listViewFiles.GridLines = true;
@@ -87,8 +92,8 @@
             this.listViewFiles.TabIndex = 18;
             this.listViewFiles.UseCompatibleStateImageBehavior = false;
             this.listViewFiles.View = System.Windows.Forms.View.Details;
-            this.listViewFiles.SelectedIndexChanged += new System.EventHandler(this.listViewFiles_SelectedIndexChanged);
             this.listViewFiles.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.listViewFiles_ItemDrag);
+            this.listViewFiles.SelectedIndexChanged += new System.EventHandler(this.listViewFiles_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -109,8 +114,8 @@
             // 
             // textBoxSelectedFolder
             // 
-            this.textBoxSelectedFolder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxSelectedFolder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxSelectedFolder.Location = new System.Drawing.Point(55, 5);
             this.textBoxSelectedFolder.Name = "textBoxSelectedFolder";
             this.textBoxSelectedFolder.ReadOnly = true;
@@ -135,6 +140,7 @@
             this.listViewFolders.BackColor = System.Drawing.Color.Black;
             this.listViewFolders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader2});
+            this.listViewFolders.ContextMenuStrip = this.contextMenuStripRightClick;
             this.listViewFolders.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewFolders.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.listViewFolders.ForeColor = System.Drawing.Color.White;
@@ -210,6 +216,20 @@
             // 
             this.folderBrowserDialog.Description = "フォルダの変更";
             // 
+            // contextMenuStripRightClick
+            // 
+            this.contextMenuStripRightClick.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.エクスプローラで開くToolStripMenuItem});
+            this.contextMenuStripRightClick.Name = "contextMenuStripRightClick";
+            this.contextMenuStripRightClick.Size = new System.Drawing.Size(165, 26);
+            // 
+            // エクスプローラで開くToolStripMenuItem
+            // 
+            this.エクスプローラで開くToolStripMenuItem.Name = "エクスプローラで開くToolStripMenuItem";
+            this.エクスプローラで開くToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.エクスプローラで開くToolStripMenuItem.Text = "エクスプローラで開く";
+            this.エクスプローラで開くToolStripMenuItem.Click += new System.EventHandler(this.エクスプローラで開くToolStripMenuItem_Click);
+            // 
             // FormEasyFiler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -232,6 +252,7 @@
             this.panelFolderSelect.PerformLayout();
             this.panelFileMask.ResumeLayout(false);
             this.panelFileMask.PerformLayout();
+            this.contextMenuStripRightClick.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -252,5 +273,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panelFileMask;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripRightClick;
+        private System.Windows.Forms.ToolStripMenuItem エクスプローラで開くToolStripMenuItem;
     }
 }

@@ -79,6 +79,7 @@ namespace Asterism
             ezfiler = new FormEasyFiler(view);
             ezfiler.Show(dockPanel);
             ezfiler.SetCurrentDisplayDirectory(startPath);
+            Core.EzFiler = ezfiler;
 
             image = new FormImage(this);
             image.Show(dockPanel);

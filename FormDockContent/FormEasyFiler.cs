@@ -18,6 +18,9 @@ namespace Asterism
         FilePatternList maskList ;
 
         public System.Windows.Forms.ListView.ListViewItemCollection FileList { get { return listViewFiles.Items; } }
+        public enum FileLoadMode { ZMap, XYZ }
+        public FileLoadMode Mode { get { return radioButtonZMap.Checked ? FileLoadMode.ZMap : FileLoadMode.XYZ; } }
+        public int ZColumnNumber { get { return (int)(numericUpDownZColNum.Value); } }
 
         public FormEasyFiler(FormDataView view)
         {
@@ -114,10 +117,7 @@ namespace Asterism
             listViewFiles.Items.AddRange(items.ToArray());
 
             //ファイルが存在する場合、先頭のファイルを選択
-            if (listViewFiles.Items.Count != 0)
-            {
-                listViewFiles.Items[0].Selected = true;
-            }
+            if (listViewFiles.Items.Count != 0) { listViewFiles.Items[0].Selected = true; }
 
             //表示幅の更新
             listViewFiles.Columns[0].Width = listViewFiles.Width - 25;
@@ -198,8 +198,7 @@ namespace Asterism
         /// <param name="e"></param>
         private void listViewFiles_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listViewFiles.SelectedItems.Count == 0) return;
-            view.SetCurrentFile(listViewFiles.SelectedItems[0].SubItems[1].Text);
+            loadingSelectedItem();
         }
 
         /// <summary>
@@ -255,6 +254,25 @@ namespace Asterism
         private void エクスプローラで開くToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(currentFolder);
+        }
+
+        private void radioButtonZMap_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonXYZ.Checked) { numericUpDownZColNum.Enabled = true; }
+            else { numericUpDownZColNum.Enabled = false; }
+
+            loadingSelectedItem();
+        }
+
+        private void numericUpDownZColNum_ValueChanged(object sender, EventArgs e)
+        {
+            loadingSelectedItem();
+        }
+
+        private void loadingSelectedItem()
+        {
+            if (listViewFiles.SelectedItems.Count == 0) return;
+            view.SetCurrentFile(listViewFiles.SelectedItems[0].SubItems[1].Text);
         }
     }
 }

@@ -157,7 +157,7 @@ namespace Asterism
         internal void SetImage()
         {
             zMap = main.CurrentZMapData;
-            if (zMap.Data != null)
+            if (zMap != null && zMap.Data != null)
             {
                 ResetImageSize();
                 DrawImage();

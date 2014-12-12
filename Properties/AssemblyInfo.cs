@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ClockAhead")]
 [assembly: AssemblyProduct("asterism")]
-[assembly: AssemblyCopyright("Copyright © D1CEK 2009-2010")]
+[assembly: AssemblyCopyright("Copyright © ClockAhead 2009-2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

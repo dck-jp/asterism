@@ -47,7 +47,7 @@ namespace Asterism
             currentFile = new FileInfo(path);
             LoadFileData();
 
-            if (zMap.Data != null)
+            if (zMap != null && zMap.Data != null)
             {
                 DrawZMap();
                 DrawLineOnZMap();
@@ -266,7 +266,23 @@ namespace Asterism
                         throw new ApplicationException("読み込みをキャンセルしました。");
                     }
                 }
-                zMap = new ZMappingData(currentFile.FullName, 0);
+
+                if (Core.EzFiler.Mode == FormEasyFiler.FileLoadMode.XYZ)
+                {
+                    try
+                    {
+                        var xyz = new XYZData(currentFile.FullName, Core.EzFiler.ZColumnNumber);
+                        var array = xyz.ToArray();
+                        zMap = array != null ? new ZMappingData(array) : null ;
+                        zMap.Header = xyz.Header;
+                    }
+                    catch(Exception e)
+                    {
+                        zMap = null;
+                        Debug.WriteLine(e.ToString());
+                    }
+                }
+                else { zMap = new ZMappingData(currentFile.FullName, 0); }
             }
             catch (Exception e)
             {
@@ -478,7 +494,7 @@ namespace Asterism
             Graphics g = Graphics.FromImage(image);
             g.InterpolationMode = InterpolationMode.High;
             g.PixelOffsetMode = PixelOffsetMode.HighQuality;
-            g.DrawImage(colorBar.ToBitmap((ZMappingData.ColorMode)comboBoxColorMode.SelectedIndex),
+            g.DrawImage(colorBar.ToBitmap(null,null,(ZMappingData.ColorMode)comboBoxColorMode.SelectedIndex),
                 0, 0, w, h);
 
             pictureBoxColorBar.Image = image;

@@ -34,6 +34,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.listViewFiles = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStripRightClick = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.エクスプローラで開くToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonApplyFileMask = new System.Windows.Forms.Button();
             this.textBoxSelectedFolder = new System.Windows.Forms.TextBox();
             this.buttonSelectFolder = new System.Windows.Forms.Button();
@@ -44,14 +46,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panelFileMask = new System.Windows.Forms.Panel();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.contextMenuStripRightClick = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.エクスプローラで開くToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.radioButtonZMap = new System.Windows.Forms.RadioButton();
+            this.radioButtonXYZ = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.numericUpDownZColNum = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.contextMenuStripRightClick.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             this.panelFolderSelect.SuspendLayout();
             this.panelFileMask.SuspendLayout();
-            this.contextMenuStripRightClick.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownZColNum)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBoxFilePattern
@@ -85,10 +93,10 @@
             this.listViewFiles.FullRowSelect = true;
             this.listViewFiles.GridLines = true;
             this.listViewFiles.HideSelection = false;
-            this.listViewFiles.Location = new System.Drawing.Point(0, 31);
+            this.listViewFiles.Location = new System.Drawing.Point(0, 76);
             this.listViewFiles.MultiSelect = false;
             this.listViewFiles.Name = "listViewFiles";
-            this.listViewFiles.Size = new System.Drawing.Size(231, 430);
+            this.listViewFiles.Size = new System.Drawing.Size(231, 385);
             this.listViewFiles.TabIndex = 18;
             this.listViewFiles.UseCompatibleStateImageBehavior = false;
             this.listViewFiles.View = System.Windows.Forms.View.Details;
@@ -99,6 +107,20 @@
             // 
             this.columnHeader1.Text = "ファイル名";
             this.columnHeader1.Width = 205;
+            // 
+            // contextMenuStripRightClick
+            // 
+            this.contextMenuStripRightClick.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.エクスプローラで開くToolStripMenuItem});
+            this.contextMenuStripRightClick.Name = "contextMenuStripRightClick";
+            this.contextMenuStripRightClick.Size = new System.Drawing.Size(165, 26);
+            // 
+            // エクスプローラで開くToolStripMenuItem
+            // 
+            this.エクスプローラで開くToolStripMenuItem.Name = "エクスプローラで開くToolStripMenuItem";
+            this.エクスプローラで開くToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.エクスプローラで開くToolStripMenuItem.Text = "エクスプローラで開く";
+            this.エクスプローラで開くToolStripMenuItem.Click += new System.EventHandler(this.エクスプローラで開くToolStripMenuItem_Click);
             // 
             // buttonApplyFileMask
             // 
@@ -203,32 +225,94 @@
             // 
             // panelFileMask
             // 
+            this.panelFileMask.Controls.Add(this.numericUpDownZColNum);
+            this.panelFileMask.Controls.Add(this.radioButtonXYZ);
+            this.panelFileMask.Controls.Add(this.radioButtonZMap);
+            this.panelFileMask.Controls.Add(this.label5);
+            this.panelFileMask.Controls.Add(this.label4);
+            this.panelFileMask.Controls.Add(this.label3);
             this.panelFileMask.Controls.Add(this.label1);
             this.panelFileMask.Controls.Add(this.comboBoxFilePattern);
             this.panelFileMask.Controls.Add(this.buttonApplyFileMask);
             this.panelFileMask.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelFileMask.Location = new System.Drawing.Point(0, 0);
             this.panelFileMask.Name = "panelFileMask";
-            this.panelFileMask.Size = new System.Drawing.Size(231, 31);
+            this.panelFileMask.Size = new System.Drawing.Size(231, 76);
             this.panelFileMask.TabIndex = 17;
             // 
             // folderBrowserDialog
             // 
             this.folderBrowserDialog.Description = "フォルダの変更";
             // 
-            // contextMenuStripRightClick
+            // radioButtonZMap
             // 
-            this.contextMenuStripRightClick.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.エクスプローラで開くToolStripMenuItem});
-            this.contextMenuStripRightClick.Name = "contextMenuStripRightClick";
-            this.contextMenuStripRightClick.Size = new System.Drawing.Size(165, 26);
+            this.radioButtonZMap.AutoSize = true;
+            this.radioButtonZMap.Checked = true;
+            this.radioButtonZMap.Location = new System.Drawing.Point(80, 34);
+            this.radioButtonZMap.Name = "radioButtonZMap";
+            this.radioButtonZMap.Size = new System.Drawing.Size(51, 16);
+            this.radioButtonZMap.TabIndex = 22;
+            this.radioButtonZMap.TabStop = true;
+            this.radioButtonZMap.Text = "ZMap";
+            this.radioButtonZMap.UseVisualStyleBackColor = true;
+            this.radioButtonZMap.CheckedChanged += new System.EventHandler(this.radioButtonZMap_CheckedChanged);
             // 
-            // エクスプローラで開くToolStripMenuItem
+            // radioButtonXYZ
             // 
-            this.エクスプローラで開くToolStripMenuItem.Name = "エクスプローラで開くToolStripMenuItem";
-            this.エクスプローラで開くToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.エクスプローラで開くToolStripMenuItem.Text = "エクスプローラで開く";
-            this.エクスプローラで開くToolStripMenuItem.Click += new System.EventHandler(this.エクスプローラで開くToolStripMenuItem_Click);
+            this.radioButtonXYZ.AutoSize = true;
+            this.radioButtonXYZ.Location = new System.Drawing.Point(135, 34);
+            this.radioButtonXYZ.Name = "radioButtonXYZ";
+            this.radioButtonXYZ.Size = new System.Drawing.Size(44, 16);
+            this.radioButtonXYZ.TabIndex = 22;
+            this.radioButtonXYZ.Text = "XYZ";
+            this.radioButtonXYZ.UseVisualStyleBackColor = true;
+            this.radioButtonXYZ.CheckedChanged += new System.EventHandler(this.radioButtonZMap_CheckedChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 36);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 12);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "データ形式：";
+            // 
+            // numericUpDownZColNum
+            // 
+            this.numericUpDownZColNum.Enabled = false;
+            this.numericUpDownZColNum.Location = new System.Drawing.Point(148, 54);
+            this.numericUpDownZColNum.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownZColNum.Name = "numericUpDownZColNum";
+            this.numericUpDownZColNum.Size = new System.Drawing.Size(45, 19);
+            this.numericUpDownZColNum.TabIndex = 23;
+            this.numericUpDownZColNum.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownZColNum.ValueChanged += new System.EventHandler(this.numericUpDownZColNum_ValueChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(102, 56);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 12);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Zの値：";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(199, 56);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 12);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "列目";
             // 
             // FormEasyFiler
             // 
@@ -245,14 +329,16 @@
             this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.DockRight;
             this.Text = "ファイルセレクター";
             this.Resize += new System.EventHandler(this.FormEasyFiler_Resize);
+            this.contextMenuStripRightClick.ResumeLayout(false);
             this.splitContainer.Panel1.ResumeLayout(false);
             this.splitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             this.panelFolderSelect.ResumeLayout(false);
             this.panelFolderSelect.PerformLayout();
             this.panelFileMask.ResumeLayout(false);
             this.panelFileMask.PerformLayout();
-            this.contextMenuStripRightClick.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownZColNum)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -275,5 +361,11 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripRightClick;
         private System.Windows.Forms.ToolStripMenuItem エクスプローラで開くToolStripMenuItem;
+        private System.Windows.Forms.NumericUpDown numericUpDownZColNum;
+        private System.Windows.Forms.RadioButton radioButtonXYZ;
+        private System.Windows.Forms.RadioButton radioButtonZMap;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
     }
 }

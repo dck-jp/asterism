@@ -24,7 +24,7 @@ namespace Asterism
 
         public void SetRawData()
         {
-            if (main.CurrentZMapData.Header.Length != 0)
+            if (main.CurrentZMapData != null && main.CurrentZMapData.Header.Length != 0)
             {
                 textBox.Text = main.CurrentZMapData.Header;
             }else

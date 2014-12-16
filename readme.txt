@@ -1,12 +1,12 @@
 =====================================================
- * asterism *　Version 1.9.0β
+ * asterism *　Version 2.0.1β
  
      Copyright(C) 2009-2014 by D*isuke YAMAKWA
         homepage: http://www.clockahead.com/
  
 =====================================================
 動作環境    :WindowsXP/Vista/7/8/2008R2 (32bit,64bit両対応)
-             .NET Framework 3.5以上
+             .NET Framework 4.5.1以上
              
 ソフト種別  :　フリーソフトウェア
 ライセンス　：　修正BSDライセンス　http://www.clockahead.com/license.txt
@@ -32,9 +32,6 @@ asterismは、
 ・可視化データ上で、任意の点を含む縦横ラインを、グラフで表示
 
 ・データの可視化処理部分は、マルチコア対応
-
-・簡易編集（データを９０度、又は任意角度回転）機能の搭載
-
 
 ■　インストール/アンインストール方法
 ￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣

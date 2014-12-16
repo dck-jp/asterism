@@ -45,13 +45,13 @@
             this.panelFolderSelect = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panelFileMask = new System.Windows.Forms.Panel();
-            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.radioButtonZMap = new System.Windows.Forms.RadioButton();
-            this.radioButtonXYZ = new System.Windows.Forms.RadioButton();
-            this.label3 = new System.Windows.Forms.Label();
             this.numericUpDownZColNum = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
+            this.radioButtonXYZ = new System.Windows.Forms.RadioButton();
+            this.radioButtonZMap = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.contextMenuStripRightClick.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -240,9 +240,35 @@
             this.panelFileMask.Size = new System.Drawing.Size(231, 76);
             this.panelFileMask.TabIndex = 17;
             // 
-            // folderBrowserDialog
+            // numericUpDownZColNum
             // 
-            this.folderBrowserDialog.Description = "フォルダの変更";
+            this.numericUpDownZColNum.Enabled = false;
+            this.numericUpDownZColNum.Location = new System.Drawing.Point(148, 54);
+            this.numericUpDownZColNum.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numericUpDownZColNum.Name = "numericUpDownZColNum";
+            this.numericUpDownZColNum.Size = new System.Drawing.Size(45, 19);
+            this.numericUpDownZColNum.TabIndex = 23;
+            this.numericUpDownZColNum.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numericUpDownZColNum.ValueChanged += new System.EventHandler(this.numericUpDownZColNum_ValueChanged);
+            // 
+            // radioButtonXYZ
+            // 
+            this.radioButtonXYZ.AutoSize = true;
+            this.radioButtonXYZ.Location = new System.Drawing.Point(135, 34);
+            this.radioButtonXYZ.Name = "radioButtonXYZ";
+            this.radioButtonXYZ.Size = new System.Drawing.Size(44, 16);
+            this.radioButtonXYZ.TabIndex = 22;
+            this.radioButtonXYZ.Text = "XYZ";
+            this.radioButtonXYZ.UseVisualStyleBackColor = true;
+            this.radioButtonXYZ.CheckedChanged += new System.EventHandler(this.radioButtonZMap_CheckedChanged);
             // 
             // radioButtonZMap
             // 
@@ -257,44 +283,14 @@
             this.radioButtonZMap.UseVisualStyleBackColor = true;
             this.radioButtonZMap.CheckedChanged += new System.EventHandler(this.radioButtonZMap_CheckedChanged);
             // 
-            // radioButtonXYZ
+            // label5
             // 
-            this.radioButtonXYZ.AutoSize = true;
-            this.radioButtonXYZ.Location = new System.Drawing.Point(135, 34);
-            this.radioButtonXYZ.Name = "radioButtonXYZ";
-            this.radioButtonXYZ.Size = new System.Drawing.Size(44, 16);
-            this.radioButtonXYZ.TabIndex = 22;
-            this.radioButtonXYZ.Text = "XYZ";
-            this.radioButtonXYZ.UseVisualStyleBackColor = true;
-            this.radioButtonXYZ.CheckedChanged += new System.EventHandler(this.radioButtonZMap_CheckedChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 36);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 12);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "データ形式：";
-            // 
-            // numericUpDownZColNum
-            // 
-            this.numericUpDownZColNum.Enabled = false;
-            this.numericUpDownZColNum.Location = new System.Drawing.Point(148, 54);
-            this.numericUpDownZColNum.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownZColNum.Name = "numericUpDownZColNum";
-            this.numericUpDownZColNum.Size = new System.Drawing.Size(45, 19);
-            this.numericUpDownZColNum.TabIndex = 23;
-            this.numericUpDownZColNum.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownZColNum.ValueChanged += new System.EventHandler(this.numericUpDownZColNum_ValueChanged);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(199, 56);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 12);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "列目";
             // 
             // label4
             // 
@@ -305,14 +301,18 @@
             this.label4.TabIndex = 19;
             this.label4.Text = "Zの値：";
             // 
-            // label5
+            // label3
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(199, 56);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 12);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "列目";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 36);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 12);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "データ形式：";
+            // 
+            // folderBrowserDialog
+            // 
+            this.folderBrowserDialog.Description = "フォルダの変更";
             // 
             // FormEasyFiler
             // 

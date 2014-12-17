@@ -56,7 +56,6 @@ namespace Asterism
             }
             else
             {
-                //main.CurrentZMapData = null;
                 pictureBoxZMap.Image = null;
 
                 ClearGraphs();
@@ -255,15 +254,21 @@ namespace Asterism
         /// </summary>
         private void LoadFileData()
         {
+            zMap = null;
+
             try
             {
                 if (currentFile.Length > 1024 * 1024 * Core.Config.AlarmFileSize)
                 {
-                    if (MessageBox.Show("ファイルサイズが" + Core.Config.AlarmFileSize + "MBを超えています。\n"
-                        + "表示に時間がかかることが予想されます。\n\n読み込みを続行しますか？", "", MessageBoxButtons.OKCancel)
-                        != DialogResult.OK)
+                    if (MessageBox.Show(
+                            "ファイルサイズが" + Core.Config.AlarmFileSize + "MBを超えています。\n"
+                            + "読み込みをキャンセルします。\n"
+                            + "\n"
+                            + "読み込みファイルサイズの制限は、「設定」から変更可能です。",
+                        "", MessageBoxButtons.OK)
+                        == DialogResult.OK)
                     {
-                        throw new ApplicationException("読み込みをキャンセルしました。");
+                        return;
                     }
                 }
 
@@ -278,7 +283,6 @@ namespace Asterism
                     }
                     catch(Exception e)
                     {
-                        zMap = null;
                         Debug.WriteLine(e.ToString());
                     }
                 }
@@ -286,8 +290,6 @@ namespace Asterism
             }
             catch (Exception e)
             {
-                //ClearAllItems();
-                //toolStripStatusLabel.Text = "ファイル読み込みエラー: " + e.Message;
                 return;
             }
         }

@@ -1,5 +1,5 @@
 =====================================================
- * asterism *Å@Version 2.0.1É¿
+ * asterism *Å@Version 2.0.2É¿
  
      Copyright(C) 2009-2014 by D*isuke YAMAKWA
         homepage: http://www.clockahead.com/

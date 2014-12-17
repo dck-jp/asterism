@@ -43,12 +43,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButtonUserDefine = new System.Windows.Forms.RadioButton();
             this.radioButtonAutoSave = new System.Windows.Forms.RadioButton();
+            this.checkBoxShowStrings = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDownAlarmFileSize = new System.Windows.Forms.NumericUpDown();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.checkBoxShowStrings = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFileMaskNumber)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -216,10 +216,20 @@
             this.radioButtonAutoSave.UseVisualStyleBackColor = true;
             this.radioButtonAutoSave.CheckedChanged += new System.EventHandler(this.radioButtonAutoSave_CheckedChanged);
             // 
+            // checkBoxShowStrings
+            // 
+            this.checkBoxShowStrings.AutoSize = true;
+            this.checkBoxShowStrings.Location = new System.Drawing.Point(14, 154);
+            this.checkBoxShowStrings.Name = "checkBoxShowStrings";
+            this.checkBoxShowStrings.Size = new System.Drawing.Size(159, 16);
+            this.checkBoxShowStrings.TabIndex = 5;
+            this.checkBoxShowStrings.Text = "ツールバーの文字を表示する";
+            this.checkBoxShowStrings.UseVisualStyleBackColor = true;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(236, 111);
+            this.label3.Location = new System.Drawing.Point(297, 111);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 12);
             this.label3.TabIndex = 0;
@@ -237,8 +247,13 @@
             // numericUpDownAlarmFileSize
             // 
             this.numericUpDownAlarmFileSize.Location = new System.Drawing.Point(174, 109);
+            this.numericUpDownAlarmFileSize.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
             this.numericUpDownAlarmFileSize.Name = "numericUpDownAlarmFileSize";
-            this.numericUpDownAlarmFileSize.Size = new System.Drawing.Size(56, 19);
+            this.numericUpDownAlarmFileSize.Size = new System.Drawing.Size(117, 19);
             this.numericUpDownAlarmFileSize.TabIndex = 3;
             // 
             // buttonCancel
@@ -250,16 +265,6 @@
             this.buttonCancel.Text = "キャンセル";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
-            // 
-            // checkBoxShowStrings
-            // 
-            this.checkBoxShowStrings.AutoSize = true;
-            this.checkBoxShowStrings.Location = new System.Drawing.Point(14, 154);
-            this.checkBoxShowStrings.Name = "checkBoxShowStrings";
-            this.checkBoxShowStrings.Size = new System.Drawing.Size(159, 16);
-            this.checkBoxShowStrings.TabIndex = 5;
-            this.checkBoxShowStrings.Text = "ツールバーの文字を表示する";
-            this.checkBoxShowStrings.UseVisualStyleBackColor = true;
             // 
             // FormUserConfig
             // 

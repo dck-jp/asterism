@@ -12,7 +12,7 @@ namespace Asterism
         public static readonly string ConfigFilePath = Application.UserAppDataPath + "\\config.xml";
         public static readonly int MajourVersion = 2;
         public static readonly int MinorVersion = 0;
-        public static readonly int Revision = 1;
+        public static readonly int Revision = 2;
         public static string VerInfo { get { return string.Format(@"asterism v{0}.{1}.{2} β", MajourVersion, MinorVersion, Revision); } }
     }
 

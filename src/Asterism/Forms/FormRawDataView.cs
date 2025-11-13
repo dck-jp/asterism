@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using CodeD.Data;
+using CodeD;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace Asterism

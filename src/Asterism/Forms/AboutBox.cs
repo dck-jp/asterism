@@ -1,4 +1,4 @@
-﻿using CodeD.Data;
+﻿using CodeD;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,10 +28,8 @@ namespace Asterism
             label3.Text = "Version 情報：";
             FileVersionInfo vi = FileVersionInfo.GetVersionInfo("ZedGraph.dll");
             FileVersionInfo vi2 = FileVersionInfo.GetVersionInfo("WeifenLuo.WinFormsUI.Docking.dll");
-            FileVersionInfo viXYZ = FileVersionInfo.GetVersionInfo("CodeD.Data.XYZData.dll");
             textBox1.Text = string.Format(@"asterism : Ver.{0}.{1}.{2} β", Core.MajourVersion, Core.MinorVersion, Core.Revision) + Environment.NewLine
-                             + "CodeD.Data.ZMappingData.dll : Ver." + ZMappingData.VersionInfo + Environment.NewLine
-                             + string.Format("{0} : Ver.{1}", viXYZ.InternalName, viXYZ.FileVersion) + Environment.NewLine
+                             + "CodeD.CSV2Heatmap : (NuGet Package)" + Environment.NewLine
                              + string.Format("{0} : Ver.{1}", vi.InternalName,vi.FileVersion) + Environment.NewLine
                              + string.Format("{0} : Ver.{1}", vi2.InternalName, vi2.FileVersion) + Environment.NewLine;
             

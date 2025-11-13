@@ -52,10 +52,6 @@
       <Link>samples\xyz例２.txt</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\docs\readme.txt">
-      <Link>readme.txt</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="..\..\docs\RevisionHistory.txt">
       <Link>RevisionHistory.txt</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -1,11 +1,8 @@
-﻿using CodeD;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
+﻿using System;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Asterism
@@ -20,19 +17,43 @@ namespace Asterism
 
             label1.Text = "asterism";
             label1.Font = new Font(new FontFamily("Meiryo uI"), 18f, FontStyle.Bold);
-            label11.Text = "visualize CSV/TSV files in Counter Plot & Line Chart";
+            label11.Text = "CSV, TSV File Visualizer for researchers";
 
-            label2.Text = "Copyright 2009-2014(c) D*isuke YAMAKAWA";
-            linkLabel1.Text = "http://www.clockahead.com";
-
-            label3.Text = "Version 情報：";
-            FileVersionInfo vi = FileVersionInfo.GetVersionInfo("ZedGraph.dll");
-            FileVersionInfo vi2 = FileVersionInfo.GetVersionInfo("WeifenLuo.WinFormsUI.Docking.dll");
-            textBox1.Text = string.Format(@"asterism : Ver.{0}.{1}.{2} β", Core.MajourVersion, Core.MinorVersion, Core.Revision) + Environment.NewLine
-                             + "CodeD.CSV2Heatmap : (NuGet Package)" + Environment.NewLine
-                             + string.Format("{0} : Ver.{1}", vi.InternalName,vi.FileVersion) + Environment.NewLine
-                             + string.Format("{0} : Ver.{1}", vi2.InternalName, vi2.FileVersion) + Environment.NewLine;
+            label2.Text = "Copyright 2009-2025(c) dck-jp";
+            linkLabel1.Text = "https://github.com/dck-jp/asterism";
             
+            // アプリケーションバージョンとライブラリバージョンを表示
+            var versionInfo = new StringBuilder();
+            versionInfo.AppendLine($"asterism Ver.{Core.MajourVersion}.{Core.MinorVersion}.{Core.Revision}");
+            versionInfo.AppendLine();
+            versionInfo.AppendLine("使用ライブラリ：");
+            
+            // 読み込まれているアセンブリからバージョンを取得
+            var loadedAssemblies = AppDomain.CurrentDomain.GetAssemblies();
+            var libraryNames = new[]
+            {
+                "CodeD.CSV2Heatmap",
+                "WeifenLuo.WinFormsUI.Docking",
+                "WeifenLuo.WinFormsUI.Docking.ThemeVS2015",
+                "ZedGraph"
+            };
+
+            foreach (var libName in libraryNames)
+            {
+                var assembly = loadedAssemblies.FirstOrDefault(a => 
+                    a.GetName().Name.Equals(libName, StringComparison.OrdinalIgnoreCase));
+                
+                if (assembly != null)
+                {
+                    versionInfo.AppendLine($"  {libName}");
+                }
+                else
+                {
+                    versionInfo.AppendLine($"  {libName} (未読み込み)");
+                }
+            }
+            
+            textBox1.Text = versionInfo.ToString();
         }
 
         #region アセンブリ属性アクセサ

@@ -8,8 +8,20 @@
     <UseWindowsForms>true</UseWindowsForms>
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
     <OutputPath>..\..\bin\$(Configuration)\</OutputPath>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <NoWarn>$(NoWarn);CA1416;WFO1000</NoWarn>
+    
+    <!-- バージョン情報 -->
+    <Version>3.0.0</Version>
+    <AssemblyVersion>3.0.0.0</AssemblyVersion>
+    <FileVersion>3.0.0.0</FileVersion>
+    
+    <!-- アセンブリ情報 -->
+    <Product>asterism</Product>
+    <Title>asterism</Title>
+    <Description>CSV, TSV File Visualizer for researchers</Description>
+    <Company>ClockAhead</Company>
+    <Copyright>Copyright © ClockAhead 2009-2025</Copyright>
   </PropertyGroup>
 
   <ItemGroup>

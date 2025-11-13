@@ -1,5 +1,7 @@
 ﻿using Asterism;
+using System;
 using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using SkiaSharp;
@@ -13,10 +15,15 @@ namespace Asterism
         public static Config Config;
         public static FormEasyFiler EzFiler;
         public static readonly string ConfigFilePath = Application.UserAppDataPath + "\\config.xml";
-        public static readonly int MajourVersion = 2;
-        public static readonly int MinorVersion = 0;
-        public static readonly int Revision = 2;
-        public static string VerInfo { get { return string.Format(@"asterism v{0}.{1}.{2} β", MajourVersion, MinorVersion, Revision); } }
+
+        // バージョン情報をアセンブリから取得
+        private static System.Version _version = Assembly.GetExecutingAssembly().GetName().Version;
+        public static int MajourVersion => _version.Major;
+        public static int MinorVersion => _version.Minor;
+        public static int Revision => _version.Build;
+        
+        // バージョン情報の文字列
+        public static string VerInfo => $"asterism Ver.{MajourVersion}.{MinorVersion}.{Revision}";
 
         /// <summary>
         /// Convert SkiaSharp SKBitmap to System.Drawing.Bitmap

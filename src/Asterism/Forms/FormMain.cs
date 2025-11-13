@@ -85,8 +85,6 @@ namespace Asterism
             Core.EzFiler = ezfiler;
 
             ezfiler.Activate();
-            
-            this.Text = Core.VerInfo;
 
             ezfiler.LoadConfig();
             view.LoadConfig();

@@ -28,124 +28,124 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutBox));
-            this.okButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            okButton = new System.Windows.Forms.Button();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            linkLabel1 = new System.Windows.Forms.LinkLabel();
+            textBox1 = new System.Windows.Forms.TextBox();
+            label11 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // okButton
             // 
-            this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.okButton.Location = new System.Drawing.Point(348, 459);
-            this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(141, 29);
-            this.okButton.TabIndex = 24;
-            this.okButton.Text = "&OK";
+            okButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            okButton.Location = new System.Drawing.Point(406, 574);
+            okButton.Margin = new System.Windows.Forms.Padding(4);
+            okButton.Name = "okButton";
+            okButton.Size = new System.Drawing.Size(164, 36);
+            okButton.TabIndex = 24;
+            okButton.Text = "&OK";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(9, 8);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(483, 308);
-            this.pictureBox1.TabIndex = 25;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            pictureBox1.Image = (System.Drawing.Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new System.Drawing.Point(10, 10);
+            pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(564, 385);
+            pictureBox1.TabIndex = 25;
+            pictureBox1.TabStop = false;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Black;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(36, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 12);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "label1";
+            label1.AutoSize = true;
+            label1.BackColor = System.Drawing.Color.Black;
+            label1.ForeColor = System.Drawing.Color.White;
+            label1.Location = new System.Drawing.Point(42, 44);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(38, 15);
+            label1.TabIndex = 26;
+            label1.Text = "label1";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Black;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(61, 251);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 12);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "label2";
+            label2.AutoSize = true;
+            label2.BackColor = System.Drawing.Color.Black;
+            label2.ForeColor = System.Drawing.Color.White;
+            label2.Location = new System.Drawing.Point(71, 314);
+            label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(38, 15);
+            label2.TabIndex = 27;
+            label2.Text = "label2";
             // 
             // linkLabel1
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(61, 278);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(56, 12);
-            this.linkLabel1.TabIndex = 28;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "linkLabel1";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new System.Drawing.Point(71, 348);
+            linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new System.Drawing.Size(60, 15);
+            linkLabel1.TabIndex = 28;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "linkLabel1";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(9, 344);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(483, 105);
-            this.textBox1.TabIndex = 29;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 319);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 12);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "label3";
+            textBox1.BackColor = System.Drawing.Color.Black;
+            textBox1.Enabled = false;
+            textBox1.ForeColor = System.Drawing.Color.White;
+            textBox1.Location = new System.Drawing.Point(10, 395);
+            textBox1.Margin = new System.Windows.Forms.Padding(4);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new System.Drawing.Size(564, 165);
+            textBox1.TabIndex = 29;
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Black;
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(61, 77);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(35, 12);
-            this.label11.TabIndex = 26;
-            this.label11.Text = "label1";
+            label11.AutoSize = true;
+            label11.BackColor = System.Drawing.Color.Black;
+            label11.ForeColor = System.Drawing.Color.White;
+            label11.Location = new System.Drawing.Point(71, 96);
+            label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(38, 15);
+            label11.TabIndex = 26;
+            label11.Text = "label1";
             // 
             // AboutBox
             // 
-            this.AcceptButton = this.okButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(501, 499);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.okButton);
-            this.Controls.Add(this.pictureBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "AboutBox";
-            this.Padding = new System.Windows.Forms.Padding(9, 8, 9, 8);
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "asterismについて";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AcceptButton = okButton;
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(584, 624);
+            Controls.Add(textBox1);
+            Controls.Add(linkLabel1);
+            Controls.Add(label2);
+            Controls.Add(label11);
+            Controls.Add(label1);
+            Controls.Add(okButton);
+            Controls.Add(pictureBox1);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            Margin = new System.Windows.Forms.Padding(4);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "AboutBox";
+            Padding = new System.Windows.Forms.Padding(10);
+            ShowIcon = false;
+            ShowInTaskbar = false;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            Text = "asterismについて";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
@@ -157,7 +157,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label11;
     }
 }

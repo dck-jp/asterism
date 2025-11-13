@@ -63,7 +63,7 @@
             // toolStripStatusLabel
             // 
             toolStripStatusLabel.Name = "toolStripStatusLabel";
-            toolStripStatusLabel.Size = new System.Drawing.Size(1097, 17);
+            toolStripStatusLabel.Size = new System.Drawing.Size(1122, 17);
             toolStripStatusLabel.Spring = true;
             toolStripStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -210,7 +210,6 @@
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Margin = new System.Windows.Forms.Padding(4);
             MaximizeBox = false;
-            MaximumSize = new System.Drawing.Size(1864, 990);
             MinimumSize = new System.Drawing.Size(907, 740);
             Name = "FormMain";
             Text = "loading...";

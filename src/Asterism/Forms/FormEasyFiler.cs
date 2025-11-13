@@ -269,10 +269,10 @@ namespace Asterism
             loadingSelectedItem();
         }
 
-        private void loadingSelectedItem()
+        private async void loadingSelectedItem()
         {
             if (listViewFiles.SelectedItems.Count == 0) return;
-            view.SetCurrentFile(listViewFiles.SelectedItems[0].SubItems[1].Text);
+            await view.SetCurrentFileAsync(listViewFiles.SelectedItems[0].SubItems[1].Text);
         }
     }
 }

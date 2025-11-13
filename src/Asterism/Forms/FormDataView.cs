@@ -24,6 +24,8 @@ namespace Asterism
         HeatmapRenderer zMap;
         Bitmap defaultBitmap;
 
+        private bool isLoading = false; // ファイル読み込み中フラグを追加
+
         public Bitmap GetCurrentImage()
         {
             return defaultBitmap;
@@ -43,33 +45,48 @@ namespace Asterism
         /// 表示するファイルの設定
         /// </summary>
         /// <param name="path"></param>
-        internal void SetCurrentFile(string path)
+        internal async Task SetCurrentFileAsync(string path)
         {
-            currentFile = new FileInfo(path);
-            LoadFileData();
-
-            if (zMap != null && zMap.Data != null)
+            // 既に読み込み中の場合は何もしない
+            if (isLoading)
             {
-                DrawZMap();
-                DrawLineOnZMap();
-                DrawGraph();
-                SetParameters();
-            }
-            else
-            {
-                pictureBoxZMap.Image = null;
-
-                ClearGraphs();
-
-                textBoxMin.Text = "N/A";
-                textBoxMax.Text = "N/A";
-                textBoxDataSize.Text = "";
-                textBoxPV.Text = "";
-                main.SetTitle("no data");
+                return;
             }
 
-            //親フォームにZMap情報を設定
-            main.CurrentZMapData = zMap;
+            try
+            {
+                isLoading = true;
+
+                currentFile = new FileInfo(path);
+                await LoadFileData();
+
+                if (zMap != null && zMap.Data != null)
+                {
+                    DrawZMap();
+                    DrawLineOnZMap();
+                    DrawGraph();
+                    SetParameters();
+                }
+                else
+                {
+                    pictureBoxZMap.Image = null;
+
+                    ClearGraphs();
+
+                    textBoxMin.Text = "N/A";
+                    textBoxMax.Text = "N/A";
+                    textBoxDataSize.Text = "";
+                    textBoxPV.Text = "";
+                    main.SetTitle("no data");
+                }
+
+                //親フォームにZMap情報を設定
+                main.CurrentZMapData = zMap;
+            }
+            finally
+            {
+                isLoading = false;
+            }
         }
 
         private void ClearGraphs()
@@ -254,7 +271,7 @@ namespace Asterism
         /// <summary>
         /// currentFile => zMap へ読み込み
         /// </summary>
-        private void LoadFileData()
+        private async Task LoadFileData()
         {
             zMap = null;
 
@@ -278,22 +295,19 @@ namespace Asterism
                 {
                     try
                     {
-                        var xyz = new XyzCsvParser(currentFile.FullName, Core.EzFiler.ZColumnNumber);
+                        var xyz = await XyzCsvParser.CreateAsync(currentFile.FullName, Core.EzFiler.ZColumnNumber);
                         var array = xyz.Data;
+
                         zMap = array != null ? new HeatmapRenderer(array, 0, xyz.Header) : null ;
                     }
                     catch(Exception e)
                     {
-                        Debug.WriteLine(e.ToString());
+                        throw new ApplicationException("XYZファイルの解析に失敗しました。\n" + e.Message);
                     }
                 }
                 else 
                 {
-                    Task.Run(() => 
-                    {
-                        zMap = new HeatmapRenderer(currentFile.FullName, 0);
-                    }).Wait();
-                    
+                    zMap = await HeatmapRenderer.CreateAsync(currentFile.FullName, 0);                    
                 }
             }
             catch (Exception e)

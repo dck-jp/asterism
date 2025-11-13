@@ -91,19 +91,31 @@ namespace Asterism
             ezfiler.LoadConfig();
             view.LoadConfig();
 
+            // 非同期処理はLoadイベントで実行
+            this.Load += FormMain_LoadAsync;
+        }
+
+        private async void FormMain_LoadAsync(object sender, EventArgs e)
+        {
             //「送る」で送られてきた場合に対象ファイルを開く処理
             string[] files = Environment.GetCommandLineArgs();
             if (files.Length != 1 && File.Exists(files[1]))
             {
                 string filename = files[1];
                 ezfiler.SetCurrentDisplayDirectory(Path.GetDirectoryName(filename));
-                view.SetCurrentFile(filename);
-            }
-            else // Configを読み込む
-            {
-                ezfiler.SetCurrentDisplayDirectory(startPath);
-            }
 
+                try
+                {
+                    await view.SetCurrentFileAsync(filename);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"ファイルの読み込みに失敗しました:\n{ex.Message}",
+                                   "エラー",
+                                   MessageBoxButtons.OK,
+                                   MessageBoxIcon.Error);
+                }
+            }
         }
 
         /// <summary>
@@ -167,11 +179,11 @@ namespace Asterism
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void FormMain_DragDrop(object sender, DragEventArgs e)
+        private async void FormMain_DragDrop(object sender, DragEventArgs e)
         {
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
             ezfiler.SetCurrentDisplayDirectory(Path.GetDirectoryName(files[0]));
-            view.SetCurrentFile(files[0]);
+            await view.SetCurrentFileAsync(files[0]);
         }
         #endregion
 
@@ -316,6 +328,5 @@ namespace Asterism
             this.Text = Path.GetFileName(path) + " - "+ Core.VerInfo;
             
         }
-
     }
 }

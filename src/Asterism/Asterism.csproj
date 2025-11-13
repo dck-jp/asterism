@@ -24,7 +24,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -33,7 +33,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\asterism\</OutputPath>
+    <OutputPath>..\..\bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -68,94 +68,94 @@
     </Reference>
     <Reference Include="ZedGraph, Version=5.1.5.28844, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Visual Studio 2008\Projects\FigureErrCreator\FigureErrCreator\ZedGraph.dll</HintPath>
+      <HintPath>DLL\ZedGraph.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutBox.cs">
+    <Compile Include="Forms\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AboutBox.Designer.cs">
+    <Compile Include="Forms\AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Config.cs" />
     <Compile Include="Core.cs" />
     <Compile Include="FilePatternList.cs" />
-    <Compile Include="FormDockContent\FormConfig.cs">
+    <Compile Include="Forms\FormConfig.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDockContent\FormConfig.Designer.cs">
+    <Compile Include="Forms\FormConfig.Designer.cs">
       <DependentUpon>FormConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUserConfig.cs">
+    <Compile Include="Forms\FormUserConfig.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormUserConfig.Designer.cs">
+    <Compile Include="Forms\FormUserConfig.Designer.cs">
       <DependentUpon>FormUserConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDockContent\FormDataView.cs">
+    <Compile Include="Forms\FormDataView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDockContent\FormDataView.Designer.cs">
+    <Compile Include="Forms\FormDataView.Designer.cs">
       <DependentUpon>FormDataView.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDockContent\FormEasyFiler.cs">
+    <Compile Include="Forms\FormEasyFiler.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDockContent\FormEasyFiler.Designer.cs">
+    <Compile Include="Forms\FormEasyFiler.Designer.cs">
       <DependentUpon>FormEasyFiler.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDockContent\FormRawDataView.cs">
+    <Compile Include="Forms\FormRawDataView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDockContent\FormRawDataView.Designer.cs">
+    <Compile Include="Forms\FormRawDataView.Designer.cs">
       <DependentUpon>FormRawDataView.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDockContent\FormImage.cs">
+    <Compile Include="Forms\FormImage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDockContent\FormImage.Designer.cs">
+    <Compile Include="Forms\FormImage.Designer.cs">
       <DependentUpon>FormImage.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMain.cs">
+    <Compile Include="Forms\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMain.Designer.cs">
+    <Compile Include="Forms\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormRotate.cs">
+    <Compile Include="Forms\FormRotate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormRotate.Designer.cs">
+    <Compile Include="Forms\FormRotate.Designer.cs">
       <DependentUpon>FormRotate.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AboutBox.resx">
+    <EmbeddedResource Include="Forms\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDockContent\FormConfig.resx">
+    <EmbeddedResource Include="Forms\FormConfig.resx">
       <DependentUpon>FormConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUserConfig.resx">
+    <EmbeddedResource Include="Forms\FormUserConfig.resx">
       <DependentUpon>FormUserConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDockContent\FormDataView.resx">
+    <EmbeddedResource Include="Forms\FormDataView.resx">
       <DependentUpon>FormDataView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDockContent\FormEasyFiler.resx">
+    <EmbeddedResource Include="Forms\FormEasyFiler.resx">
       <DependentUpon>FormEasyFiler.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDockContent\FormRawDataView.resx">
+    <EmbeddedResource Include="Forms\FormRawDataView.resx">
       <DependentUpon>FormRawDataView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDockContent\FormImage.resx">
+    <EmbeddedResource Include="Forms\FormImage.resx">
       <DependentUpon>FormImage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMain.resx">
+    <EmbeddedResource Include="Forms\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormRotate.resx">
+    <EmbeddedResource Include="Forms\FormRotate.resx">
       <DependentUpon>FormRotate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -181,27 +181,34 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icone_asterism.ico" />
-    <Content Include="readme.txt">
+    <None Include="..\..\samples\sample.txt">
+      <Link>samples\sample.txt</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="RevisionHistory.txt">
+    </None>
+    <None Include="..\..\samples\sample2.txt">
+      <Link>samples\sample2.txt</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\samples\sample3.txt">
+      <Link>samples\sample3.txt</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\samples\xyz例１.txt">
+      <Link>samples\xyz例１.txt</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="sample.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="sample2.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="sample3.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="xyz例１.txt">
+    </None>
+    <None Include="..\..\samples\xyz例２.txt">
+      <Link>samples\xyz例２.txt</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="xyz例２.txt">
+    </None>
+    <None Include="..\..\docs\readme.txt">
+      <Link>readme.txt</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\docs\RevisionHistory.txt">
+      <Link>RevisionHistory.txt</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

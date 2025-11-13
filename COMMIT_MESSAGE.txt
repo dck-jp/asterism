@@ -1,0 +1,6 @@
+refactor: モダンなプロジェクト構造に再編成
+
+ソースコードを src/Asterism/ に、フォームを Forms/ に、
+サンプルを samples/ に、ドキュメントを docs/ に分離。
+プロジェクトファイルのパスを更新し、README.md を追加。
+CodeD.CSV2Heatmap と統一した構造に整理。

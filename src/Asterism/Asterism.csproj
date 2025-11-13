@@ -22,6 +22,12 @@
     <Description>CSV, TSV File Visualizer for researchers</Description>
     <Company>ClockAhead</Company>
     <Copyright>Copyright © ClockAhead 2009-2025</Copyright>
+    
+    <!-- Publish設定（Self-Contained用） -->
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">win-x64</RuntimeIdentifier>
+    <PublishReadyToRun>true</PublishReadyToRun>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
   </PropertyGroup>
 
   <ItemGroup>

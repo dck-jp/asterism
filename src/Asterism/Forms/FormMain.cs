@@ -1,17 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using CodeD;
-using ZedGraph;
-using System.Drawing.Drawing2D;
 using System.IO;
-using System.Diagnostics;
-using Asterism;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace Asterism
@@ -79,22 +70,24 @@ namespace Asterism
             view = new FormDataView(this);
             view.Show(dockPanel);
 
-            ezfiler = new FormEasyFiler(view);
-            ezfiler.Show(dockPanel);
-            ezfiler.SetCurrentDisplayDirectory(startPath);
-            Core.EzFiler = ezfiler;
-
             image = new FormImage(this);
             image.Show(dockPanel);
 
             raw = new FormRawDataView(this);
             raw.Show(dockPanel);
 
-            view.Activate(); 
+            view.Activate();
+
+            //ファイラーウィンドウの生成
+            ezfiler = new FormEasyFiler(view);
+            ezfiler.Show(dockPanel, DockState.DockRight);
+            ezfiler.SetCurrentDisplayDirectory(startPath);
+            Core.EzFiler = ezfiler;
+
+            ezfiler.Activate();
+            
             this.Text = Core.VerInfo;
 
-
-            //
             ezfiler.LoadConfig();
             view.LoadConfig();
 
@@ -111,8 +104,18 @@ namespace Asterism
                 ezfiler.SetCurrentDisplayDirectory(startPath);
             }
 
-            
-            
+        }
+
+        /// <summary>
+        /// フォーム表示時にレイアウトを強制更新
+        /// ※なぜか最初の表示時にファイラーが表示されない問題への対策 (bad code)
+        /// </summary>
+        private void FormMain_Shown(object sender, EventArgs e)
+        {
+            // 強制的にレイアウトを再計算させるためにウィンドウサイズを微調整
+            this.Width += 1;
+            this.Refresh();
+            this.Width -= 1;
         }
 
         private void ToggleToolStripButtonText()

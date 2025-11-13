@@ -29,209 +29,201 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonRotateCCW = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonRotateCW = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonRotate = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonSaveAs = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonSaveAsPNG = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonReload = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButtonConfig = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonVerInfo = new System.Windows.Forms.ToolStripButton();
-            this.dockPanel = new WeifenLuo.WinFormsUI.Docking.DockPanel();
-            this.statusStrip.SuspendLayout();
-            this.toolStrip.SuspendLayout();
-            this.SuspendLayout();
+            folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            statusStrip = new System.Windows.Forms.StatusStrip();
+            toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            toolStrip = new System.Windows.Forms.ToolStrip();
+            toolStripButtonRotateCCW = new System.Windows.Forms.ToolStripButton();
+            toolStripButtonRotateCW = new System.Windows.Forms.ToolStripButton();
+            toolStripButtonRotate = new System.Windows.Forms.ToolStripButton();
+            toolStripButtonSaveAs = new System.Windows.Forms.ToolStripButton();
+            toolStripButtonSaveAsPNG = new System.Windows.Forms.ToolStripButton();
+            toolStripButtonReload = new System.Windows.Forms.ToolStripButton();
+            toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            toolStripButtonConfig = new System.Windows.Forms.ToolStripButton();
+            toolStripButtonVerInfo = new System.Windows.Forms.ToolStripButton();
+            dockPanel = new WeifenLuo.WinFormsUI.Docking.DockPanel();
+            statusStrip.SuspendLayout();
+            toolStrip.SuspendLayout();
+            SuspendLayout();
             // 
             // statusStrip
             // 
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel,
-            this.toolStripStatusLabel1,
-            this.toolStripStatusLabel2});
-            this.statusStrip.Location = new System.Drawing.Point(0, 726);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1018, 22);
-            this.statusStrip.SizingGrip = false;
-            this.statusStrip.TabIndex = 15;
-            this.statusStrip.Text = "statusStrip1";
+            statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripStatusLabel, toolStripStatusLabel1, toolStripStatusLabel2 });
+            statusStrip.Location = new System.Drawing.Point(0, 756);
+            statusStrip.Name = "statusStrip";
+            statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
+            statusStrip.Size = new System.Drawing.Size(1139, 22);
+            statusStrip.SizingGrip = false;
+            statusStrip.TabIndex = 15;
+            statusStrip.Text = "statusStrip1";
             // 
             // toolStripStatusLabel
             // 
-            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(1003, 17);
-            this.toolStripStatusLabel.Spring = true;
-            this.toolStripStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            toolStripStatusLabel.Name = "toolStripStatusLabel";
+            toolStripStatusLabel.Size = new System.Drawing.Size(1097, 17);
+            toolStripStatusLabel.Spring = true;
+            toolStripStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // toolStripStatusLabel1
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
-            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Visible = false;
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Visible = false;
             // 
             // toolStripStatusLabel2
             // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(118, 17);
-            this.toolStripStatusLabel2.Text = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Visible = false;
+            toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            toolStripStatusLabel2.Size = new System.Drawing.Size(118, 17);
+            toolStripStatusLabel2.Text = "toolStripStatusLabel2";
+            toolStripStatusLabel2.Visible = false;
             // 
             // toolStrip
             // 
-            this.toolStrip.AutoSize = false;
-            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonRotateCCW,
-            this.toolStripButtonRotateCW,
-            this.toolStripButtonRotate,
-            this.toolStripButtonSaveAs,
-            this.toolStripButtonSaveAsPNG,
-            this.toolStripButtonReload,
-            this.toolStripSeparator1,
-            this.toolStripButtonConfig,
-            this.toolStripButtonVerInfo});
-            this.toolStrip.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(1018, 39);
-            this.toolStrip.TabIndex = 19;
-            this.toolStrip.Text = "toolStrip1";
+            toolStrip.AutoSize = false;
+            toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripButtonRotateCCW, toolStripButtonRotateCW, toolStripButtonRotate, toolStripButtonSaveAs, toolStripButtonSaveAsPNG, toolStripButtonReload, toolStripSeparator1, toolStripButtonConfig, toolStripButtonVerInfo });
+            toolStrip.Location = new System.Drawing.Point(0, 0);
+            toolStrip.Name = "toolStrip";
+            toolStrip.Size = new System.Drawing.Size(1139, 49);
+            toolStrip.TabIndex = 19;
+            toolStrip.Text = "toolStrip1";
             // 
             // toolStripButtonRotateCCW
             // 
-            this.toolStripButtonRotateCCW.Enabled = false;
-            this.toolStripButtonRotateCCW.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRotateCCW.Image")));
-            this.toolStripButtonRotateCCW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonRotateCCW.Name = "toolStripButtonRotateCCW";
-            this.toolStripButtonRotateCCW.Size = new System.Drawing.Size(64, 36);
-            this.toolStripButtonRotateCCW.Text = "左90°回転";
-            this.toolStripButtonRotateCCW.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonRotateCCW.Visible = false;
-            this.toolStripButtonRotateCCW.Click += new System.EventHandler(this.toolStripButtonRotateCCW_Click);
+            toolStripButtonRotateCCW.Enabled = false;
+            toolStripButtonRotateCCW.Image = (System.Drawing.Image)resources.GetObject("toolStripButtonRotateCCW.Image");
+            toolStripButtonRotateCCW.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButtonRotateCCW.Name = "toolStripButtonRotateCCW";
+            toolStripButtonRotateCCW.Size = new System.Drawing.Size(64, 46);
+            toolStripButtonRotateCCW.Text = "左90°回転";
+            toolStripButtonRotateCCW.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            toolStripButtonRotateCCW.Visible = false;
+            toolStripButtonRotateCCW.Click += toolStripButtonRotateCCW_Click;
             // 
             // toolStripButtonRotateCW
             // 
-            this.toolStripButtonRotateCW.Enabled = false;
-            this.toolStripButtonRotateCW.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRotateCW.Image")));
-            this.toolStripButtonRotateCW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonRotateCW.Name = "toolStripButtonRotateCW";
-            this.toolStripButtonRotateCW.Size = new System.Drawing.Size(64, 36);
-            this.toolStripButtonRotateCW.Text = "右90°回転";
-            this.toolStripButtonRotateCW.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonRotateCW.Visible = false;
-            this.toolStripButtonRotateCW.Click += new System.EventHandler(this.toolStripButtonRotateCW_Click);
+            toolStripButtonRotateCW.Enabled = false;
+            toolStripButtonRotateCW.Image = (System.Drawing.Image)resources.GetObject("toolStripButtonRotateCW.Image");
+            toolStripButtonRotateCW.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButtonRotateCW.Name = "toolStripButtonRotateCW";
+            toolStripButtonRotateCW.Size = new System.Drawing.Size(64, 46);
+            toolStripButtonRotateCW.Text = "右90°回転";
+            toolStripButtonRotateCW.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            toolStripButtonRotateCW.Visible = false;
+            toolStripButtonRotateCW.Click += toolStripButtonRotateCW_Click;
             // 
             // toolStripButtonRotate
             // 
-            this.toolStripButtonRotate.Enabled = false;
-            this.toolStripButtonRotate.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRotate.Image")));
-            this.toolStripButtonRotate.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonRotate.Name = "toolStripButtonRotate";
-            this.toolStripButtonRotate.Size = new System.Drawing.Size(71, 36);
-            this.toolStripButtonRotate.Text = "任意角回転";
-            this.toolStripButtonRotate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonRotate.Visible = false;
-            this.toolStripButtonRotate.Click += new System.EventHandler(this.toolStripButtonRotate_Click);
+            toolStripButtonRotate.Enabled = false;
+            toolStripButtonRotate.Image = (System.Drawing.Image)resources.GetObject("toolStripButtonRotate.Image");
+            toolStripButtonRotate.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButtonRotate.Name = "toolStripButtonRotate";
+            toolStripButtonRotate.Size = new System.Drawing.Size(71, 46);
+            toolStripButtonRotate.Text = "任意角回転";
+            toolStripButtonRotate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            toolStripButtonRotate.Visible = false;
+            toolStripButtonRotate.Click += toolStripButtonRotate_Click;
             // 
             // toolStripButtonSaveAs
             // 
-            this.toolStripButtonSaveAs.Enabled = false;
-            this.toolStripButtonSaveAs.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSaveAs.Image")));
-            this.toolStripButtonSaveAs.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonSaveAs.Name = "toolStripButtonSaveAs";
-            this.toolStripButtonSaveAs.Size = new System.Drawing.Size(95, 36);
-            this.toolStripButtonSaveAs.Text = "名前をつけて保存";
-            this.toolStripButtonSaveAs.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonSaveAs.ToolTipText = "回転状態で名前をつけて保存";
-            this.toolStripButtonSaveAs.Visible = false;
-            this.toolStripButtonSaveAs.Click += new System.EventHandler(this.toolStripButtonSaveAs_Click);
+            toolStripButtonSaveAs.Enabled = false;
+            toolStripButtonSaveAs.Image = (System.Drawing.Image)resources.GetObject("toolStripButtonSaveAs.Image");
+            toolStripButtonSaveAs.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButtonSaveAs.Name = "toolStripButtonSaveAs";
+            toolStripButtonSaveAs.Size = new System.Drawing.Size(95, 46);
+            toolStripButtonSaveAs.Text = "名前をつけて保存";
+            toolStripButtonSaveAs.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            toolStripButtonSaveAs.ToolTipText = "回転状態で名前をつけて保存";
+            toolStripButtonSaveAs.Visible = false;
+            toolStripButtonSaveAs.Click += toolStripButtonSaveAs_Click;
             // 
             // toolStripButtonSaveAsPNG
             // 
-            this.toolStripButtonSaveAsPNG.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSaveAsPNG.Image")));
-            this.toolStripButtonSaveAsPNG.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonSaveAsPNG.Name = "toolStripButtonSaveAsPNG";
-            this.toolStripButtonSaveAsPNG.Size = new System.Drawing.Size(85, 36);
-            this.toolStripButtonSaveAsPNG.Text = "画像として保存";
-            this.toolStripButtonSaveAsPNG.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonSaveAsPNG.ToolTipText = "画像として保存";
-            this.toolStripButtonSaveAsPNG.Visible = false;
-            this.toolStripButtonSaveAsPNG.Click += new System.EventHandler(this.toolStripButtonSaveAsPNG_Click);
+            toolStripButtonSaveAsPNG.Image = (System.Drawing.Image)resources.GetObject("toolStripButtonSaveAsPNG.Image");
+            toolStripButtonSaveAsPNG.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButtonSaveAsPNG.Name = "toolStripButtonSaveAsPNG";
+            toolStripButtonSaveAsPNG.Size = new System.Drawing.Size(85, 46);
+            toolStripButtonSaveAsPNG.Text = "画像として保存";
+            toolStripButtonSaveAsPNG.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            toolStripButtonSaveAsPNG.ToolTipText = "画像として保存";
+            toolStripButtonSaveAsPNG.Visible = false;
+            toolStripButtonSaveAsPNG.Click += toolStripButtonSaveAsPNG_Click;
             // 
             // toolStripButtonReload
             // 
-            this.toolStripButtonReload.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonReload.Image")));
-            this.toolStripButtonReload.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonReload.Name = "toolStripButtonReload";
-            this.toolStripButtonReload.Size = new System.Drawing.Size(69, 36);
-            this.toolStripButtonReload.Text = "再読み込み";
-            this.toolStripButtonReload.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonReload.Visible = false;
-            this.toolStripButtonReload.Click += new System.EventHandler(this.toolStripButtonReload_Click);
+            toolStripButtonReload.Image = (System.Drawing.Image)resources.GetObject("toolStripButtonReload.Image");
+            toolStripButtonReload.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButtonReload.Name = "toolStripButtonReload";
+            toolStripButtonReload.Size = new System.Drawing.Size(69, 46);
+            toolStripButtonReload.Text = "再読み込み";
+            toolStripButtonReload.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            toolStripButtonReload.Visible = false;
+            toolStripButtonReload.Click += toolStripButtonReload_Click;
             // 
             // toolStripSeparator1
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new System.Drawing.Size(6, 49);
             // 
             // toolStripButtonConfig
             // 
-            this.toolStripButtonConfig.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonConfig.Image")));
-            this.toolStripButtonConfig.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonConfig.Name = "toolStripButtonConfig";
-            this.toolStripButtonConfig.Size = new System.Drawing.Size(35, 36);
-            this.toolStripButtonConfig.Text = "設定";
-            this.toolStripButtonConfig.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonConfig.Click += new System.EventHandler(this.toolStripButtonConfig_Click);
+            toolStripButtonConfig.Image = (System.Drawing.Image)resources.GetObject("toolStripButtonConfig.Image");
+            toolStripButtonConfig.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButtonConfig.Name = "toolStripButtonConfig";
+            toolStripButtonConfig.Size = new System.Drawing.Size(35, 46);
+            toolStripButtonConfig.Text = "設定";
+            toolStripButtonConfig.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            toolStripButtonConfig.Click += toolStripButtonConfig_Click;
             // 
             // toolStripButtonVerInfo
             // 
-            this.toolStripButtonVerInfo.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonVerInfo.Image")));
-            this.toolStripButtonVerInfo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonVerInfo.Name = "toolStripButtonVerInfo";
-            this.toolStripButtonVerInfo.Size = new System.Drawing.Size(53, 36);
-            this.toolStripButtonVerInfo.Text = "Ver.情報";
-            this.toolStripButtonVerInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonVerInfo.Click += new System.EventHandler(this.toolStripButtonVerInfo_Click);
+            toolStripButtonVerInfo.Image = (System.Drawing.Image)resources.GetObject("toolStripButtonVerInfo.Image");
+            toolStripButtonVerInfo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            toolStripButtonVerInfo.Name = "toolStripButtonVerInfo";
+            toolStripButtonVerInfo.Size = new System.Drawing.Size(53, 46);
+            toolStripButtonVerInfo.Text = "Ver.情報";
+            toolStripButtonVerInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            toolStripButtonVerInfo.Click += toolStripButtonVerInfo_Click;
             // 
             // dockPanel
             // 
-            this.dockPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dockPanel.DockBackColor = System.Drawing.SystemColors.Control;
-            this.dockPanel.Location = new System.Drawing.Point(0, 39);
-            this.dockPanel.Name = "dockPanel";
-            this.dockPanel.Size = new System.Drawing.Size(1018, 687);
-            this.dockPanel.TabIndex = 24;
+            dockPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            dockPanel.DockBackColor = System.Drawing.SystemColors.Control;
+            dockPanel.Location = new System.Drawing.Point(0, 49);
+            dockPanel.Margin = new System.Windows.Forms.Padding(4);
+            dockPanel.Name = "dockPanel";
+            dockPanel.Size = new System.Drawing.Size(1139, 707);
+            dockPanel.TabIndex = 24;
             // 
             // FormMain
             // 
-            this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1018, 748);
-            this.Controls.Add(this.dockPanel);
-            this.Controls.Add(this.statusStrip);
-            this.Controls.Add(this.toolStrip);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1600, 800);
-            this.MinimumSize = new System.Drawing.Size(780, 600);
-            this.Name = "FormMain";
-            this.Text = "loading...";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
-            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.FormMain_DragDrop);
-            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.FormMain_DragEnter);
-            this.statusStrip.ResumeLayout(false);
-            this.statusStrip.PerformLayout();
-            this.toolStrip.ResumeLayout(false);
-            this.toolStrip.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AllowDrop = true;
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1139, 778);
+            Controls.Add(dockPanel);
+            Controls.Add(statusStrip);
+            Controls.Add(toolStrip);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            Margin = new System.Windows.Forms.Padding(4);
+            MaximizeBox = false;
+            MaximumSize = new System.Drawing.Size(1864, 990);
+            MinimumSize = new System.Drawing.Size(907, 740);
+            Name = "FormMain";
+            Text = "loading...";
+            FormClosed += FormMain_FormClosed;
+            Shown += FormMain_Shown;
+            DragDrop += FormMain_DragDrop;
+            DragEnter += FormMain_DragEnter;
+            statusStrip.ResumeLayout(false);
+            statusStrip.PerformLayout();
+            toolStrip.ResumeLayout(false);
+            toolStrip.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

@@ -298,6 +298,7 @@ namespace Asterism
             }
             catch (Exception e)
             {
+                MessageBox.Show("ファイルの読み込みに失敗しました。\n" + e.Message);
                 return;
             }
         }

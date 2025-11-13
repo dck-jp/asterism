@@ -4,7 +4,9 @@
 ![.NET](https://img.shields.io/badge/.NET-10.0-purple.svg)
 ![Platform](https://img.shields.io/badge/platform-Windows-blue.svg)
 
-**asterism** is a CSV/TSV data visualization tool designed for researchers to quickly visualize 2D numerical data as heatmap images.
+**asterism** is a viewer with a built-in file browser that rapidly displays CSV/TSV files in a folder as heatmaps for quick visual inspection. With parallel processing and SIMD optimization, it enables fast checking even for large datasets.
+
+<img width="1150" height="822" alt="image" src="https://github.com/user-attachments/assets/28665c1c-32fc-4470-83a3-d10e6995486e" />
 
 ## Features
 

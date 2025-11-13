@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
-using CodeD.Data;
+using CodeD;
 using WeifenLuo.WinFormsUI.Docking;
 using System.IO;
 
@@ -31,7 +31,7 @@ namespace Asterism
     public partial class FormImage : DockContent
     {
         FormMain main;
-        ZMappingData zMap;
+        HeatmapRenderer zMap;
         enum DisplayMode { アスペクト比固定=0, 縦方向最大=1, DotByDot=2, 任意=3};
 
         public FormImage(FormMain main)
@@ -50,10 +50,10 @@ namespace Asterism
         /// </summary>
         private void InitializeComboBox()
         {
-            toolStripComboBoxConvertMode.Items.AddRange(Enum.GetNames(typeof(ZMappingData.ConvertMode)));
+            toolStripComboBoxConvertMode.Items.AddRange(Enum.GetNames(typeof(HeatmapRenderer.ConvertMode)));
             toolStripComboBoxConvertMode.SelectedIndex = 0;
 
-            toolStripComboBoxColorMode.Items.AddRange(Enum.GetNames(typeof(ZMappingData.ColorMode)));
+            toolStripComboBoxColorMode.Items.AddRange(Enum.GetNames(typeof(HeatmapRenderer.ColorMode)));
             toolStripComboBoxColorMode.SelectedIndex = 1;
 
             toolStripComboBoxDrawMode.Items.AddRange(Enum.GetNames(typeof(DisplayMode)));
@@ -140,10 +140,12 @@ namespace Asterism
             Graphics g = Graphics.FromImage(image);
             g.InterpolationMode = (InterpolationMode)toolStripComboBoxInterpolationMethod.SelectedIndex;
             g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+            var skBitmap = zMap.ToBitmap(min, max,
+                    (HeatmapRenderer.ColorMode)toolStripComboBoxColorMode.SelectedIndex,
+                    (HeatmapRenderer.ConvertMode)toolStripComboBoxConvertMode.SelectedIndex);
+            var bitmap = Core.SKBitmapToBitmap(skBitmap);
             g.DrawImage(
-                zMap.ToBitmap(min, max,
-                    (ZMappingData.ColorMode)toolStripComboBoxColorMode.SelectedIndex,
-                    (ZMappingData.ConvertMode)toolStripComboBoxConvertMode.SelectedIndex),
+                bitmap,
                     0, 0, width, height);
 
             pictureBoxZMap.Image = image;

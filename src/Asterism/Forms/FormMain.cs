@@ -6,12 +6,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using CodeD.Data;
+using CodeD;
 using ZedGraph;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.Diagnostics;
 using Asterism;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace Asterism
 {
@@ -22,7 +23,7 @@ namespace Asterism
     public partial class FormMain : Form
     {
         #region ロード中のファイルに関する情報
-        internal ZMappingData CurrentZMapData
+        internal HeatmapRenderer CurrentZMapData
         {
             get
             {
@@ -38,7 +39,7 @@ namespace Asterism
                 
             }
         }
-        ZMappingData currentZMapData;
+        HeatmapRenderer currentZMapData;
         #endregion
 
         FormDataView view;
@@ -53,6 +54,8 @@ namespace Asterism
         public FormMain()
         {
             InitializeComponent();
+            var vS2005Theme1 = new VS2015LightTheme();
+            this.dockPanel.Theme = vS2005Theme1;
 
             Core.Config = Config.Load();
             string startPath;

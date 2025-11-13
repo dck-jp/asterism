@@ -2,6 +2,9 @@
 using System.IO;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using SkiaSharp;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace Asterism
 {
@@ -14,6 +17,29 @@ namespace Asterism
         public static readonly int MinorVersion = 0;
         public static readonly int Revision = 2;
         public static string VerInfo { get { return string.Format(@"asterism v{0}.{1}.{2} β", MajourVersion, MinorVersion, Revision); } }
+
+        /// <summary>
+        /// Convert SkiaSharp SKBitmap to System.Drawing.Bitmap
+        /// </summary>
+        public static Bitmap SKBitmapToBitmap(SKBitmap skBitmap)
+        {
+            using (var image = SKImage.FromBitmap(skBitmap))
+            using (var data = image.Encode(SKEncodedImageFormat.Png, 100))
+            using (var stream = new MemoryStream())
+            {
+                data.SaveTo(stream);
+                stream.Seek(0, SeekOrigin.Begin);
+                return new Bitmap(stream);
+            }
+        }
+
+        /// <summary>
+        /// Convert System.Drawing.Color to SkiaSharp SKColor
+        /// </summary>
+        public static SKColor ColorToSKColor(System.Drawing.Color color)
+        {
+            return new SKColor(color.R, color.G, color.B, color.A);
+        }
     }
 
     static class Files

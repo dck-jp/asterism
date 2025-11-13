@@ -9,9 +9,10 @@ using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 using System.Diagnostics;
 using System.IO;
-using CodeD.Data;
+using CodeD;
 using ZedGraph;
 using System.Drawing.Drawing2D;
+using System.Threading.Tasks;
 
 namespace Asterism
 {
@@ -20,7 +21,7 @@ namespace Asterism
         FormMain main; //親フォーム
 
         FileInfo currentFile; 
-        ZMappingData zMap;
+        HeatmapRenderer zMap;
         Bitmap defaultBitmap;
 
         public Bitmap GetCurrentImage()
@@ -231,8 +232,9 @@ namespace Asterism
 
                 
                 zMap.EnablesOutOfRangeColor = Core.Config.EnablesOutOfRangeColor;
-                zMap.OutOfRangeColor = Core.Config.OutOfRangeColor;
-                var bitmap = zMap.ToBitmap(min, max, (ZMappingData.ColorMode)comboBoxColorMode.SelectedIndex, (ZMappingData.ConvertMode)comboBoxConvertMode.SelectedIndex);
+                zMap.OutOfRangeColor = Core.ColorToSKColor(Core.Config.OutOfRangeColor);
+                var skBitmap = zMap.ToBitmap(min, max, (HeatmapRenderer.ColorMode)comboBoxColorMode.SelectedIndex, (HeatmapRenderer.ConvertMode)comboBoxConvertMode.SelectedIndex);
+                var bitmap = Core.SKBitmapToBitmap(skBitmap);
 
                 g.DrawImage(bitmap,0, 0, w, h);
                 defaultBitmap = image;
@@ -276,20 +278,27 @@ namespace Asterism
                 {
                     try
                     {
-                        var xyz = new XYZData(currentFile.FullName, Core.EzFiler.ZColumnNumber);
-                        var array = xyz.ToArray();
-                        zMap = array != null ? new ZMappingData(array) : null ;
-                        zMap.Header = xyz.Header;
+                        var xyz = new XyzCsvParser(currentFile.FullName, Core.EzFiler.ZColumnNumber);
+                        var array = xyz.Data;
+                        zMap = array != null ? new HeatmapRenderer(array, 0, xyz.Header) : null ;
                     }
                     catch(Exception e)
                     {
                         Debug.WriteLine(e.ToString());
                     }
                 }
-                else { zMap = new ZMappingData(currentFile.FullName, 0); }
+                else 
+                {
+                    Task.Run(() => 
+                    {
+                        zMap = new HeatmapRenderer(currentFile.FullName, 0);
+                    }).Wait();
+                    
+                }
             }
             catch (Exception e)
             {
+                MessageBox.Show("ファイルの読み込みに失敗しました。\n" + e.Message);
                 return;
             }
         }
@@ -304,10 +313,10 @@ namespace Asterism
             //pattern.LoadListFile();
             //comboBoxFilePattern.Items.AddRange(pattern.ToArray());
 
-            comboBoxColorMode.Items.AddRange(Enum.GetNames(typeof(ZMappingData.ColorMode)));
+            comboBoxColorMode.Items.AddRange(Enum.GetNames(typeof(HeatmapRenderer.ColorMode)));
             comboBoxColorMode.SelectedIndex = 1;
 
-            comboBoxConvertMode.Items.AddRange(Enum.GetNames(typeof(ZMappingData.ConvertMode)));
+            comboBoxConvertMode.Items.AddRange(Enum.GetNames(typeof(HeatmapRenderer.ConvertMode)));
             comboBoxConvertMode.SelectedIndex = 0;
         }
 
@@ -487,7 +496,7 @@ namespace Asterism
             {
                 forColorBar[i,0] = i;
             }
-            ZMappingData colorBar = new ZMappingData(forColorBar);
+            HeatmapRenderer colorBar = new HeatmapRenderer(forColorBar);
 
             int w = pictureBoxColorBar.Size.Width;
             int h = pictureBoxColorBar.Size.Height;
@@ -496,7 +505,9 @@ namespace Asterism
             Graphics g = Graphics.FromImage(image);
             g.InterpolationMode = InterpolationMode.High;
             g.PixelOffsetMode = PixelOffsetMode.HighQuality;
-            g.DrawImage(colorBar.ToBitmap(null,null,(ZMappingData.ColorMode)comboBoxColorMode.SelectedIndex),
+            var skBitmap = colorBar.ToBitmap(null,null,(HeatmapRenderer.ColorMode)comboBoxColorMode.SelectedIndex);
+            var bitmap = Core.SKBitmapToBitmap(skBitmap);
+            g.DrawImage(bitmap,
                 0, 0, w, h);
 
             pictureBoxColorBar.Image = image;
